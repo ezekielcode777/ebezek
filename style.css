@@ -1,0 +1,273 @@
+/* Reset Dasar */
+/* --- TAMBAHAN BARU: AGAR SCROLL SNAP AKTIF --- */
+html {
+    scroll-snap-type: y mandatory; /* Ini kuncinya! */
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Font lebih modern */
+}
+
+/* Latar Belakang */
+body {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 0;
+    min-height: 100vh;
+    /* Pastikan elemen awalnya tersembunyi atau opacity 0 */
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+    margin: 0;
+}
+
+#background-video {
+    position: absolute; /* Agar video tetap di tempatnya saat scroll */
+    right: 0;
+    bottom: 0;
+    min-width: 100vh; /* Lebar minimal viewport */
+    min-height: 100vh; /* Tinggi minimal viewport */
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Menempatkan video di belakang konten */
+    object-fit: cover; /* Memastikan video menutupi seluruh area tanpa terpotong atau ada ruang kosong */
+}
+
+/* Definisi animasi @keyframes */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+ /* Mencegah scroll samping */
+
+
+/* --- Navigasi --- */
+.navbar {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 80px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.nav-btn {
+    background-color: transparent;
+    border: 2px solid #b200ff;
+    color: #ffffff;
+    padding: 10px 25px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    text-transform: lowercase;
+    transition: 0.3s;
+    position: relative;
+    left: 2%;
+    bottom: -56%;
+}
+
+.nav-btn:hover {
+    background-color: #b200ff;
+    color: white;
+    box-shadow: 0 0 15px #b200ff; /* Efek Cahaya Neon */
+}
+
+/* Tombol Sosmed */
+.social-btn {
+    background-color: #800080;
+    color: white;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%; /* Bulat sempurna lebih bagus */
+    text-decoration: none;
+    font-size: 20px;
+    transition: all 0.3s ease;
+    border: 1px solid #b200ff;
+    position: relative;
+    left: 54%;
+    bottom: -56%;
+}
+
+.social-btn:hover {
+    transform: scale(1.1) rotate(10deg); /* Muter dikit saat dihover */
+    background-color: #b200ff;
+    box-shadow: 0 0 20px #b200ff; /* Nyala Neon */
+}
+
+/* --- Header Judul --- */
+.main-header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    height: auto;
+    bottom: 30px;
+    position: relative;
+    top: -39px;
+}
+
+.main-header h1 {
+    border: 3px solid #b200ff;
+    padding: 10px 40px;
+    border-radius: 15px;
+    font-size: 28px;
+    text-align: center;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: lowercase;
+    box-shadow: 0 0 30px #b200ff;
+    backdrop-filter: blur(23px); /* Kotak bercahaya */
+}
+
+.layar-penuh1 {
+    position: relative; /* Agar video menempel di sini */
+    height: 100vh;      /* WAJIB 100vh (Satu Layar Penuh) */
+    width: 100%;
+    scroll-snap-align: start; /* Titik henti scroll */
+    overflow: hidden;
+    
+    /* Agar konten di tengah */
+    display: flex;
+    flex-direction: column;
+}
+/* --- Konten Utama --- */
+.content-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+    flex-wrap: wrap;
+}
+
+/* Bagian Teks */
+.text-section {
+    border: 3px solid #b200ff;
+    backdrop-filter: blur(23px);
+    box-shadow: 0 0 30px #b200ff;
+    padding: 10px;
+    border-radius: 15px;
+    flex: 1;
+    max-width: 600px;
+    font-size: 24px;
+    line-height: 1.5;
+    text-align: left;
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    left: 3%;
+}
+.text-section:hover {
+    transform: scale(1.2); /* Membesar sedikit */
+    box-shadow: 0 0 77px #b200ff; /* Nyala ungu terang */
+}
+.greeting-text {
+    color: #b200ff;
+    margin-bottom: 10px;
+    font-size: 30px;
+    text-shadow: 0 0 5px #b200ff;
+}
+
+/* Efek Mengetik */
+.typing-box {
+    margin-top: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #b200ff;
+    font-weight: bold;
+    min-height: 30px;
+}
+
+.cursor {
+    display: inline-block;
+    width: 3px;
+    background-color: #b200ff;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* --- Bagian Foto --- */
+.photo-section {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.photo-frame {
+    width: 400px; /* Ukuran frame */
+    height: 300px;
+    border: 5px solid #b200ff;
+    border-radius: 50px;
+    
+    /* Agar gambar rapi di dalam */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* PENTING: Memotong gambar yg lewat border */
+    background-color: #111;
+    
+    /* Animasi Frame */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Efek saat mouse kena foto (Biar interaktif tapi gak kocak) */
+.photo-frame:hover {
+    transform: scale(1.2); /* Membesar sedikit */
+    box-shadow: 0 0 77px #b200ff; /* Nyala ungu terang */
+}
+
+.photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Foto penuh tanpa gepeng */
+    display: block;
+}
+
+/* Responsif HP */
+@media (max-width: 768px) {
+    .content-container {
+        flex-direction: column-reverse;
+        gap: 40px;
+        text-align: center;
+    }
+    .photo-section {
+        justify-content: center;
+    }
+    .photo-frame {
+        width: 100%;
+        max-width: 400px;
+    }
+    .text-section {
+        font-size: 18px;
+    }
+}
+
+.layar-penuh2 {
+    position: absolute;
+    height: 100vh;      /* WAJIB 100vh */
+    width: 100%;
+    scroll-snap-align: start; /* Titik henti scroll */
+    
+    /* Background Gambar */
+    background-image: url('tangan.jpg'); /* Pastikan nama file benar */
+    background-size: cover;
+    background-position: center;
+    background-color: black;
+    
+    /* Posisi Teks 'ID' di tengah */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
